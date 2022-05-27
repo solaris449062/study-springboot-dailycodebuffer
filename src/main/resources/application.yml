@@ -2,10 +2,49 @@ server:
   port: 8082
 
 spring:
+  profiles:
+    active: test
+---
+
+spring:
+  profiles: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/sparkapp
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome to Spring Boot!
+
+---
+
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/sparkapp-test
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome to Spring Boot!
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/sparkapp-prod
     password: ''
   jpa:
     hibernate:
