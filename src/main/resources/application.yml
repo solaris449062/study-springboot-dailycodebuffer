@@ -44,6 +44,7 @@ management:
     web:
       exposure:
         include: "*"
+        exclude: "env, beans"
 ---
 spring:
   profiles: prod
